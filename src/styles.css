@@ -5,7 +5,7 @@
 /* ===================== Variables ======================== */
 :root {
     --navbar-height: 4rem;
-    --sidebar-width: 30rem;
+    --sidebar-width: 17rem;
 }
 
 
@@ -25,10 +25,12 @@ ul,ol,li{
 body{
     width: 100%;
     overflow-x: hidden;
-    padding-top: calc(var(--navbar-height)+1rem);
-    padding-left: calc(var(--sidebar-width)+1rem);
+  }
+.router-outlet-container{
+  padding-top: calc(var(--navbar-height)+1rem);
+  margin-left: calc(var(--sidebar-width)+1rem);
+  width: calc(var(--sidebar-width)-1rem);
 }
-
 /* ===================== Styling ======================== */
 
 
