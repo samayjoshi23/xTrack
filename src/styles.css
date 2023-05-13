@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+/* ======================= Imports ======================== */
+
+
+
+/* ======================= Reset ========================== */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+ul,ol,li{
+    list-style: none;
+}
+body{
+    width: 100%;
+    overflow-x: hidden;
+}
+
+
+/* ===================== Styling ======================== */
