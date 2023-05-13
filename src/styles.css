@@ -6,8 +6,32 @@
 :root {
     --navbar-height: 4rem;
     --sidebar-width: 17rem;
+    --primary-color: rgb(60, 147, 103);
+    --secondary-color: rgb(120, 220, 170);
+
+
+    /* font styles */
+    /* theming colors */
+    /* resp font sizes - for heading, sub heading, paragraphs*/
+    /* dark and light mode vars */
 }
 
+::-webkit-scrollbar {
+  width: 0.7rem;
+  height: 0.7rem;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border: 2px solid var(--secondary-color);
+  border-radius: 3rem;
+}
+/* ::-webkit-scrollbar-thumb:hover {
+  background-color: var(--button-pressed-color);
+} */
+::-webkit-scrollbar-track {
+  background-color: var(--secondary-color);
+  border-radius: 3rem;
+}
 
 /* ======================= Reset ========================== */
 
@@ -24,7 +48,8 @@ ul,ol,li{
 }
 body{
     width: 100%;
-    overflow-x: hidden;
+    height: 100vh;
+    overflow: hidden;
   }
 .router-outlet-container{
   padding-top: calc(var(--navbar-height)+1rem);

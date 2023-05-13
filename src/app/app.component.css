@@ -1,0 +1,14 @@
+#main-container{
+    width: 100%;
+    display: flex;
+    margin-top: var(--navbar-height);
+    height: calc(100vh - var(--navbar-height));
+}
+#sidebar-container{
+    width: var(--sidebar-width);
+}
+
+#router-outlet-container{
+    width: calc(100% - (var(--sidebar-width)-3px));
+    overflow-y: scroll;
+}

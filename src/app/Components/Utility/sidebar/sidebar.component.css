@@ -1,8 +1,8 @@
 .sidebar{
     background-color: rgb(230, 230, 230);
-    position: fixed;
+    /* position: fixed; */
     display: flex;
-    width: var(--sidebar-width);
-    height: 100vh;
-    z-index: 100;
+    flex-direction: column;
+    /* width: var(--sidebar-width); */
+    height: 100%;
 }
