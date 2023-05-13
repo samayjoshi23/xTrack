@@ -3,7 +3,10 @@
 
 
 /* ===================== Variables ======================== */
-
+:root {
+    --navbar-height: 4rem;
+    --sidebar-width: 30rem;
+}
 
 
 /* ======================= Reset ========================== */
@@ -22,7 +25,8 @@ ul,ol,li{
 body{
     width: 100%;
     overflow-x: hidden;
-    padding-top: 5rem;
+    padding-top: calc(var(--navbar-height)+1rem);
+    padding-left: calc(var(--sidebar-width)+1rem);
 }
 
 /* ===================== Styling ======================== */
