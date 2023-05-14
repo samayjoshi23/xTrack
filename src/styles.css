@@ -5,7 +5,9 @@
 /* ===================== Variables ======================== */
 :root {
     --navbar-height: 4rem;
-    --sidebar-width: 17rem;
+    --sidebar-width-full: 17rem;
+    --sidebar-width-collapsed: 4rem;
+    --sidebar-width-overlay: 14rem;
     --primary-color: rgb(60, 147, 103);
     --secondary-color: rgb(120, 220, 170);
 
@@ -51,11 +53,6 @@ body{
     height: 100vh;
     overflow: hidden;
   }
-.router-outlet-container{
-  padding-top: calc(var(--navbar-height)+1rem);
-  margin-left: calc(var(--sidebar-width)+1rem);
-  width: calc(var(--sidebar-width)-1rem);
-}
 /* ===================== Styling ======================== */
 
 

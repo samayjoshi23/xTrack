@@ -3,12 +3,47 @@
     display: flex;
     margin-top: var(--navbar-height);
     height: calc(100vh - var(--navbar-height));
+    position: relative;
 }
 #sidebar-container{
-    width: var(--sidebar-width);
+    width: var(--sidebar-width-full);
+    transition: all 0.25s ease-in-out;
+    box-shadow: 2px 0 7px 2px rgba(0, 0, 0, 0.2);
 }
 
 #router-outlet-container{
-    width: calc(100% - (var(--sidebar-width)-3px));
+    width: calc(100% - (var(--sidebar-width-full) - 3px));
     overflow-y: scroll;
+}
+
+/* ====================== Media Queries ================== */
+
+@media(max-width: 768px){
+    #sidebar-container{
+        width: var(--sidebar-width-collapsed);
+    }
+    #router-outlet-container{
+        width: calc(100% - (var(--sidebar-width-collapsed) - 3px));        
+    }
+}
+
+@media(max-width: 586px){
+    #sidebar-container{
+        width: var(--sidebar-width-overlay);
+        position: absolute;
+        top: 0;
+        height: calc(100vh - var(--navbar-height));
+        left: calc(0px - var(--sidebar-width-overlay));
+    }
+    #sidebar-container.show{
+        left: 0;
+        box-shadow: 2px 0 7px 2px rgba(0, 0, 0, 0.2);
+    }
+    #sidebar-container.hide{
+        left: calc(0px - var(--sidebar-width-overlay));
+        box-shadow: 2px 0 7px 2px rgba(0, 0, 0, 0);
+    }
+    #router-outlet-container{
+        width: 100%;
+    }
 }

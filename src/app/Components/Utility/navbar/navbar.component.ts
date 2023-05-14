@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  @Output() toggelSidebarEvent = new EventEmitter<boolean>();
+  hamburgerToggle: boolean = false;
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  sidebarSwitch(value: boolean){
+    this.hamburgerToggle = value;
+    this.toggelSidebarEvent.emit(value);
   }
 
 }
