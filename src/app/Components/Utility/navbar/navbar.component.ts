@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { SharedService } from 'src/Services/SharedService/shared.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,16 +7,16 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  @Output() toggelSidebarEvent = new EventEmitter<boolean>();
-  hamburgerToggle: boolean = false;
+  isActive: boolean = false;
 
-  constructor() { }
+  constructor(private sharedService: SharedService) { }
 
   ngOnInit(): void { }
 
-  sidebarSwitch(value: boolean){
-    this.hamburgerToggle = value;
-    this.toggelSidebarEvent.emit(value);
+  sidebarSwitch(){
+    this.isActive = !this.isActive;
+    // this.toggelSidebarEvent.emit(this.isActive);
+    this.sharedService.toggleSidebarVisibility(this.isActive);
   }
 
 }

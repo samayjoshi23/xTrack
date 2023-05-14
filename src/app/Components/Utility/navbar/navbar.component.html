@@ -2,17 +2,23 @@
 </nav> -->
 <div class="nav bg-body-tertiary">
     <div class="d-flex align-items-center">
-        <button class="hamburger" (click)="sidebarSwitch(true)" *ngIf="!hamburgerToggle">
-            <i class="fa-solid fa-bars fs-3"></i>
+        <button class="hamburger" (click)="sidebarSwitch()">
+            <span *ngIf="!isActive">
+                <i class="fa-solid fa-bars fs-4 pt-1"></i>
+            </span>
+            <span *ngIf="isActive">
+                <i class="fa-solid fa-bars-staggered fs-4 pt-1"></i>
+            </span>
         </button>
-        <button class="hamburger" (click)="sidebarSwitch(false)" *ngIf="hamburgerToggle">
-            <i class="fa-solid fa-bars-staggered fs-3"></i>
-        </button>
-        <h1 class="fs-3 m-0 p-0 ms-2 ">Navbar</h1>
+        <h1 class="fs-4 m-0 p-0 ms-2 ">Navbar</h1>
     </div>
-    <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-        aria-controls="offcanvasExample">
-        Link with href
-    </a>
+    <div>
+        <button class="mx-2 btn btn-success" routerLink="auth/login">
+            Login
+        </button>
+        <button class="mx-2 btn btn-warning" routerLink="auth/signup">
+            Signup
+        </button>
+    </div>
 </div>
 <!-- height: 8rem, position: fixed, z-index:101 -->

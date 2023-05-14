@@ -13,6 +13,8 @@ import { LoginComponent } from './Components/Auth/login/login.component';
 import { SignupComponent } from './Components/Auth/signup/signup.component';
 import { AdminDashboardComponent } from './Components/Admin/admin-dashboard/admin-dashboard.component';
 import { ExpenseDetailsComponent } from './Components/Client/expense-details/expense-details.component';
+import { ClientPageLayoutComponent } from './Components/Client/client-page-layout/client-page-layout.component';
+import { SharedService } from 'src/Services/SharedService/shared.service';
 
 @NgModule({
   declarations: [
@@ -26,13 +28,14 @@ import { ExpenseDetailsComponent } from './Components/Client/expense-details/exp
     LoginComponent,
     SignupComponent,
     AdminDashboardComponent,
-    ExpenseDetailsComponent
+    ExpenseDetailsComponent,
+    ClientPageLayoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

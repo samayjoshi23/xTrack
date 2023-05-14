@@ -8,6 +8,7 @@ import { AccountSettingsComponent } from './Components/Client/account-settings/a
 import { AdminDashboardComponent } from './Components/Admin/admin-dashboard/admin-dashboard.component';
 import { LoginComponent } from './Components/Auth/login/login.component';
 import { SignupComponent } from './Components/Auth/signup/signup.component';
+import { ClientPageLayoutComponent } from './Components/Client/client-page-layout/client-page-layout.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,7 @@ const routes: Routes = [
   },
   {
     path: 'user/:id',
-    component: ClientDashboardComponent,
+    component: ClientPageLayoutComponent,
     children: [
       {
         path: 'dashboard',

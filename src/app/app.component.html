@@ -1,10 +1,5 @@
-<app-navbar (toggelSidebarEvent)="toggleSidebar($event)"></app-navbar>
+<app-navbar></app-navbar>
 
-<div id="main-container">
-    <div id="sidebar-container" [class]="showSidebar ? 'show' : 'hide'">
-      <app-sidebar></app-sidebar>
-    </div>
-    <div id="router-outlet-container">
-      <router-outlet></router-outlet>
-    </div>
-</div>
+<main id="main-container">
+    <router-outlet></router-outlet>
+</main>

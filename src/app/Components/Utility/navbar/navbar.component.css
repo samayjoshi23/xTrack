@@ -12,9 +12,23 @@
     z-index: 101;
 }
 .hamburger{
+    display: none;
     background-color: transparent;
     border: none;
     padding: 0;
     margin: 0;
     margin: 0 0.5rem;
+}
+
+
+/* ====================== Media Queries ================== */
+
+@media(max-width: 768px){
+
+}
+
+@media(max-width: 586px){
+    .hamburger{
+        display: flex;
+    }
 }
