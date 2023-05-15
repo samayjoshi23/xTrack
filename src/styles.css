@@ -8,11 +8,7 @@
     --sidebar-width-full: 16rem;
     --sidebar-width-collapsed: 4rem;
     --sidebar-width-overlay: 14rem;
-    
-    /* font styles */
-    /* theming colors */
-    /* resp font sizes - for heading, sub heading, paragraphs*/
-    /* dark and light mode vars */
+    /* Resp font sizes - for heading, sub heading, paragraphs*/
 }
 
 ::-webkit-scrollbar {
@@ -24,9 +20,6 @@
   border: 2px solid var(--secondary-color);
   border-radius: 3rem;
 }
-/* ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--button-pressed-color);
-} */
 ::-webkit-scrollbar-track {
   background-color: var(--secondary-color);
   border-radius: 3rem;
@@ -50,6 +43,7 @@ body{
     overflow: hidden;
     color: var(--primary-font-color);
     background-color: var(--primary-bgcolor);
+    font-family: 'Poppins', sans-serif;
 }
 body.light{
   --primary-bgcolor: rgb(255, 255, 255);
