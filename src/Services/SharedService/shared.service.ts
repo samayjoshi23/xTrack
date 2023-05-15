@@ -10,7 +10,7 @@ export class SharedService {
 
   private sidebarVisibleSubject = new BehaviorSubject<boolean>(false);
   sidebarVisible$ = this.sidebarVisibleSubject.asObservable();
-
+  
   toggleSidebarVisibility(value: boolean) {
     this.sidebarVisibleSubject.next(value);
   }

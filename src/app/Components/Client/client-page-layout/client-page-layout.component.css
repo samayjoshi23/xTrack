@@ -1,6 +1,7 @@
 #layout-container{
     width: 100%;
     display: flex;
+    background-color: var(--primary-bgcolor);
     margin-top: var(--navbar-height);
     height: calc(100vh - var(--navbar-height));
     position: relative;
@@ -8,7 +9,7 @@
 #sidebar-container{
     width: var(--sidebar-width-full);
     transition: all 0.25s ease-in-out;
-    box-shadow: 2px 0 7px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 0 7px 2px var(--shadow-color);
 }
 
 #router-outlet-container{

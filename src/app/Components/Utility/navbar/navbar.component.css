@@ -10,6 +10,9 @@
     left: 0;
     right: 0;
     z-index: 101;
+    color: var(--primary-font-color);
+    background-color: var(--primary-bgcolor);
+    box-shadow: 0px -2px 7px 2px var(--shadow-color);
 }
 .hamburger{
     display: none;
@@ -19,7 +22,16 @@
     margin: 0;
     margin: 0 0.5rem;
 }
-
+.hamburger-icons, .mode-icons {
+    color: var(--primary-color);
+}
+.color-mode-button{
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    margin: 0 0.5rem;
+}
 
 /* ====================== Media Queries ================== */
 

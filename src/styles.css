@@ -5,13 +5,10 @@
 /* ===================== Variables ======================== */
 :root {
     --navbar-height: 4rem;
-    --sidebar-width-full: 17rem;
+    --sidebar-width-full: 16rem;
     --sidebar-width-collapsed: 4rem;
     --sidebar-width-overlay: 14rem;
-    --primary-color: rgb(60, 147, 103);
-    --secondary-color: rgb(120, 220, 170);
-
-
+    
     /* font styles */
     /* theming colors */
     /* resp font sizes - for heading, sub heading, paragraphs*/
@@ -51,6 +48,30 @@ body{
     width: 100%;
     height: 100vh;
     overflow: hidden;
+    color: var(--primary-font-color);
+    background-color: var(--primary-bgcolor);
+}
+body.light{
+  --primary-bgcolor: rgb(255, 255, 255);
+  --secondary-bgcolor: rgb(240, 240, 240);
+  --alt-bgcolor: rgb(220, 220, 220);
+  --primary-font-color: rgb(20,20,20);
+  --secondary-font-color: rgb(50,50,50);
+  --alt-font-color: rgb(120,120,120); 
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --primary-color: rgb(49, 32, 54);
+  --secondary-color: rgb(229, 184, 244);
+}
+body.dark{
+  --primary-bgcolor: rgb(29, 35, 41);
+  --secondary-bgcolor: rgb(49, 60, 68);
+  --alt-bgcolor: rgb(37, 45, 52);
+  --primary-font-color: rgb(255, 255, 255);
+  --secondary-font-color: rgb(240,240,240);
+  --alt-font-color: rgb(180,180,180);
+  --shadow-color: rgba(255, 255, 255, 0.1);
+  --primary-color: rgb(160, 142, 166);
+  --secondary-color: rgb(54, 36, 60);
 }
 
 /* ===================== Styling ======================== */

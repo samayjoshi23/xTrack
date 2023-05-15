@@ -1,24 +1,30 @@
-<!-- <nav class="navbar ">
-</nav> -->
-<div class="nav bg-body-tertiary">
+<div class="nav">
     <div class="d-flex align-items-center">
         <button class="hamburger" (click)="sidebarSwitch()">
             <span *ngIf="!isActive">
-                <i class="fa-solid fa-bars fs-4 pt-1"></i>
+                <i class="hamburger-icons fa-solid fa-bars fs-4 pt-1"></i>
             </span>
             <span *ngIf="isActive">
-                <i class="fa-solid fa-bars-staggered fs-4 pt-1"></i>
+                <i class="hamburger-icons fa-solid fa-bars-staggered fs-4 pt-1"></i>
             </span>
         </button>
-        <h1 class="fs-4 m-0 p-0 ms-2 ">Navbar</h1>
+        <h1 class="fs-4 m-0 p-0 ms-2">Navbar</h1>
     </div>
     <div>
-        <button class="mx-2 btn btn-success" routerLink="auth/login">
+        <button class="mx-2 btn btn-sm btn-info" routerLink="user/124123adsf/dashboard">
+            Dashboard
+        </button>
+        <button class="mx-2 btn btn-sm btn-success" routerLink="auth/login">
             Login
         </button>
-        <button class="mx-2 btn btn-warning" routerLink="auth/signup">
+        <button class="mx-2 btn btn-sm btn-warning" routerLink="auth/signup">
             Signup
+        </button>
+        <button class="color-mode-button" (click)="colorModeSwitch('dark')" *ngIf="colorMode == 'light'">
+            <i class="mode-icons fa-solid fa-moon fs-4 pt-1"></i>
+        </button>
+        <button class="color-mode-button" (click)="colorModeSwitch('light')" *ngIf="colorMode == 'dark'">
+            <i class="mode-icons fa-solid fa-sun fs-4 pt-1"></i>
         </button>
     </div>
 </div>
-<!-- height: 8rem, position: fixed, z-index:101 -->
