@@ -1,0 +1,25 @@
+1.	Input => Amount
+2. 	Input => Description
+3.	Input => Tag ([Add Tag] If not available) [Clothes, Food, Grocery, Electronics, Investment]
+
+-----------------------------------------------------------
+				Func
+-----------------------------------------------------------
+1. Wallet
+2. Add Tag
+3. View Expense - List
+4. Set Budget (Warning limit on X%)
+5. Garphical View (Daily, Monthly, Yearly)
+6. Monthly Savings
+
+----------------------------------------------------------
+1. Login/Signup
+
+----------------------------------------------------------
+Angular
+Firebase
+
+---- Express/Mongo | C#/SQL -------
+----------------------------------------------------------
+ng2-charts
+ng-select

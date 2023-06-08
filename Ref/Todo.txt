@@ -1,0 +1,56 @@
+UI ->
+	UI buttons CSS
+	Padding Size Variables For Button Element Responsiveness
+	Font Size Variables For Responsiveness
+	HomePage and Dashboard
+	Data table CSS - (ngx-datatable)
+
+Functionality ->
+	- HomePage => intro with login signup
+
+	- Dashboard =>
+		- Expense and Profit Section
+		- Graph (this month [Deault])
+		- Expense and income buttons -> (onClick => Transaction Page (with filter)) api/transactions?mode="profit/expense"
+		- Recent 5-10 transactions then View More button (onClick => api/transactions?mode="all")
+		- Add Profit / Add Income Button (onClick => open Popup Form to fill data)
+		
+		-- Add Trasnsaction/Income Popup
+			- Amount
+			- Description
+			- Tag
+			- Older Transaction checkbox (OnCheck => New Field -> Date Input with current time)
+			- isOlder : false
+
+
+	- Transactions =>
+		- Filter Buttons (selected based on request [All, Income, Profit, More (Date-Filters -> (Monthly - Daily- Yearly) )])
+		- List of result in paginator (20 results each page) with sorting for each column
+		- Click on transaction to get all of it's details in a popup (with edit [Tag/Desc] and archive option).
+		- Add older transaction Date(TBD) - Popup
+
+			-- Add Trasnsaction Popup
+				- Amount
+				- Description
+				- Tag
+				- New Field -> Date Input
+				- isOlder : true
+
+	- Analytics [Graph] =>
+		- Detailed graph wise representation of the transactions
+		- This Month, expense, Category-All [Default Selection]
+		- UI
+			- Row 1 [DropDowns]- Type - ['All', 'Income', 'Expense'], Category - ['All' ... remaining default types and defined by user]
+			- Row 2 [Buttons] - Day, Month, Year
+			- Row 3 [Paginator] - For Day, month and year with arrows
+			- Expense and Profit Section
+			- Graph For the filter result
+	
+
+	- Login/Signup/AuthGuard
+		 - form (email, password, name(sign up) )
+                 - forgot password
+                 - login with Google, Apple, Facebook
+
+
+
