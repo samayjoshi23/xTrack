@@ -10,12 +10,12 @@ Functionality ->
 
 	- Dashboard =>
 		- Expense and Profit Section
-		- Graph (this month [Deault])
+		- Graph (this month [Default])
 		- Expense and income buttons -> (onClick => Transaction Page (with filter)) api/transactions?mode="profit/expense"
 		- Recent 5-10 transactions then View More button (onClick => api/transactions?mode="all")
 		- Add Profit / Add Income Button (onClick => open Popup Form to fill data)
-		
-		-- Add Trasnsaction/Income Popup
+
+		-- Add Transaction/Income Popup
 			- Amount
 			- Description
 			- Tag
@@ -45,7 +45,7 @@ Functionality ->
 			- Row 3 [Paginator] - For Day, month and year with arrows
 			- Expense and Profit Section
 			- Graph For the filter result
-	
+
 
 	- Login/Signup/AuthGuard
 		 - form (email, password, name(sign up) )
