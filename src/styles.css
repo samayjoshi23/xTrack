@@ -1,5 +1,6 @@
 /* ======================= Imports ======================== */
-
+@import "./StyleSheets/commonButtons.css";
+@import "./StyleSheets/transactionCard.css";
 
 
 /* ===================== Variables ======================== */
@@ -9,6 +10,12 @@
     --sidebar-width-collapsed: 4rem;
     --sidebar-width-overlay: 14rem;
     /* Resp font sizes - for heading, sub heading, paragraphs*/
+    --fsize-2: 2rem;
+    --fsize-1-5: 1.5rem;
+    --fsize-1-25: 1.25rem;
+    --fsize-1: 1rem;
+    --fsize-0-85: 0.85rem;
+    --fsize-0-7: 0.7rem;
 }
 
 ::-webkit-scrollbar {
@@ -66,6 +73,50 @@ body.dark{
   --shadow-color: rgba(255, 255, 255, 0.1);
   --primary-color: rgb(160, 142, 166);
   --secondary-color: rgb(54, 36, 60);
+}
+
+/* ===================== individual-classes =================== */
+.fsize-2{
+  font-size: 2rem;
+}
+.fsize-1-5{
+  font-size: 1.5rem;
+}
+.fsize-1-25{
+  font-size: 1.25rem;
+}
+.fsize-1{
+  font-size: 1rem;
+}
+.fsize-0-85{
+  font-size: 0.85rem;
+}
+.fsize-0-7{
+  font-size: 0.7rem;
+}
+.primary-bgcolor{
+  background-color : var(--primary-bgcolor);
+}
+.secondary-bgcolor{
+  background-color : var(--secondary-bgcolor);
+}
+.alt-bgcolor{
+  background-color : var(--alt-bgcolor);
+}
+.primary-font-color{
+  color : var(--primary-font-color);
+}
+.secondary-font-color{
+  color : var(--secondary-font-color);
+}
+.alt-font-color{
+  color : var(--alt-font-color);
+}
+.primary-color{
+  color : var(--primary-color);
+}
+.secondary-color{
+  color : var(--secondary-color);
 }
 
 /* ===================== Styling ======================== */

@@ -9,6 +9,14 @@ export class ClientHomePageComponent implements OnInit {
 
   constructor() { }
 
+  public appDescription : string[] = [
+    'Online expense management',
+    'Everything in one place',
+    'Detailed analysis',
+    'Have a clear overview of a your expenditures'
+  ]
+
+
   ngOnInit(): void {
   }
 

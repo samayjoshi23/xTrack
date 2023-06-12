@@ -1,0 +1,42 @@
+.hero-section{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../../../../assets/HomePage/HomepageBG2.jpg');
+}
+.hero-data{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    color: #272727 !important;
+}
+.hero-title{
+    display: flex;
+    flex-direction: column;
+}
+.hero-title p{
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    word-spacing: 0.25rem;
+}
+.hero-title h4{
+    font-size: 5rem;
+    letter-spacing: 0.25rem;
+}
+.hero-title h4 span{
+    font-size: 5rem;
+    font-weight: 700;
+    color: var(--secondary-color) !important;
+}
+.hero-title{
+    font-size: 0.85rem;
+}
+.hero-desc{
+    padding: 1rem 0;
+    margin: 0.75rem 0;
+    border-top: 2px solid var(--alt-font-color);
+    border-bottom: 2px solid var(--alt-font-color);
+}
+.desc-icons{
+    color: #0ad852 !important;
+}
