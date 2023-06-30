@@ -1,0 +1,23 @@
+@import '../../../../StyleSheets/inputFields.css';
+
+.password-input-container{
+    position: relative;
+    display: flex;
+}
+.password-input-container .inputs{
+    width: 100%;
+}
+.text-btn-desc{
+    margin: 0.2rem 0;
+    font-size: 0.8rem;
+}
+.password-icon-btn{
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    position: absolute;
+    padding: 0;
+    background-color: transparent;
+    border-color: transparent;    
+    outline: none;
+}

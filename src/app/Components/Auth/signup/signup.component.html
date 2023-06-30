@@ -1,1 +1,125 @@
-<p>signup works!</p>
+<section class="d-flex align-items-center justify-content-center w-100 h-100 flex-column">
+    <h2>Signup</h2>
+    <div class="form-container">
+        <form class="mx-1 my-2 px-2 py-1 bg-light rounded-4" [formGroup]="signupForm" (ngSubmit)="register()">
+            <div class="input-holder">
+                <label for="name" class="input-label p-0">Name <span class="asterisk">*</span></label>
+                <div class="d-flex flex-column">
+                    <input type="text" name="name" class="inputs my-2" id="name" formControlName="name">
+                    <span class="error-message"
+                        *ngIf="
+                            signupForm.controls['name'].hasError('required') &&
+                            (signupForm.controls['name'].touched || signupForm.controls['name'].dirty)
+                        ">
+                        Name can not be blank.
+                    </span>
+                    <span class="error-message" 
+                        *ngIf="
+                            !signupForm.controls['name'].hasError('required') && 
+                            signupForm.controls['name'].hasError('minlength') &&
+                            (signupForm.controls['name'].touched || signupForm.controls['name'].dirty)
+                        ">
+                        Minimum name length should be 3 characters.
+                    </span>
+                </div>
+            </div>
+            <div class="input-holder mt-2">
+                <label for="email" class="input-label p-0">Email <span class="asterisk">*</span></label>
+                <div class="d-flex flex-column">
+                    <input type="text" name="email" class="inputs my-2" id="email" formControlName="email">
+                    <span class="error-message"
+                        *ngIf="
+                            signupForm.controls['email'].hasError('required') &&
+                            (signupForm.controls['email'].touched || signupForm.controls['email'].dirty)
+                        ">
+                        Email can not be blank.
+                    </span>
+                    <span class="error-message" 
+                        *ngIf="
+                            !signupForm.controls['email'].hasError('required') && 
+                            signupForm.controls['email'].hasError('email') &&
+                            (signupForm.controls['email'].touched || signupForm.controls['email'].dirty)
+                        ">
+                        Incorrect Email. Example: "JohnDoe@gmail.com"
+                    </span>
+                </div>
+            </div>
+            <div class="input-holder mt-2">
+                <label for="password" class="input-label p-0">Password <span class="asterisk">*</span></label>
+                <div class="d-flex flex-column">
+                    <div class="password-input-container">
+                        <input type="password" name="password" class="inputs my-2" id="password" formControlName="password" #password>
+                        <button type="button" class="password-icon-btn" (click)="togglePass(password)">
+                            <span *ngIf="password.type == 'text'">
+                                <i class="fa-regular fa-eye"></i>
+                            </span>
+                            <span *ngIf="password.type == 'password'">
+                                <i class="fa-regular fa-eye-slash"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <span class="error-message"
+                        *ngIf="
+                            signupForm.controls['password'].hasError('required') &&
+                            (signupForm.controls['password'].touched || signupForm.controls['password'].dirty)
+                        ">
+                        Passowrd can not be blank.
+                    </span>
+                    <span class="error-message" 
+                        *ngIf="
+                            !signupForm.controls['password'].hasError('required') && 
+                            signupForm.controls['password'].hasError('minlength') &&
+                            (signupForm.controls['password'].touched || signupForm.controls['password'].dirty)
+                        ">
+                        Password should be atleast of 5 characters.
+                    </span>
+                </div>
+            </div>
+            <div class="input-holder mt-2">
+                <label for="cpassword" class="input-label p-0">Confirm Password <span class="asterisk">*</span></label>
+                <div class="d-flex flex-column">
+                    <div class="password-input-container">
+                        <input type="password" name="cpassword" class="inputs my-2" id="cpassword" formControlName="cpassword" #cpassword>
+                        <button type="button" class="password-icon-btn" (click)="togglePass(cpassword)">
+                            <span *ngIf="cpassword.type == 'text'">
+                                <i class="fa-regular fa-eye"></i>
+                            </span>
+                            <span *ngIf="cpassword.type == 'password'">
+                                <i class="fa-regular fa-eye-slash"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <span class="error-message"
+                        *ngIf="
+                            signupForm.controls['cpassword'].hasError('required') &&
+                            (signupForm.controls['cpassword'].touched || signupForm.controls['cpassword'].dirty)
+                        ">
+                        Confirm Passowrd field can not be blank.
+                    </span>
+                    <span class="error-message" 
+                        *ngIf="
+                            !signupForm.controls['cpassword'].hasError('required') && 
+                            signupForm.controls['cpassword'].hasError('minlength') &&
+                            (signupForm.controls['cpassword'].touched || signupForm.controls['cpassword'].dirty)
+                        ">
+                        Confirm Password should be atleast of 5 characters.
+                    </span>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between mt-3">
+                <div class="d-flex flex-column align-items-start">
+                    <button type="button" class="primary-button primary-btn-filled px-1 d-flex justify-content-center" routerLink="/login">
+                        <span class="mx-1">Login</span>
+                    </button>
+                    <p class="text-muted text-btn-desc">Already a user?</p>
+                </div>
+                <div class="d-flex flex-column align-items-end">
+                    <button type="submit" class="primary-button primary-btn-filled px-2 submit-btn" [disabled]="signupForm.invalid">
+                        <span class="me-1">Register</span>
+                        <i class="ri-login-box-line ms-1"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

@@ -15,6 +15,9 @@ import { AdminDashboardComponent } from './Components/Admin/admin-dashboard/admi
 import { ExpenseDetailsComponent } from './Components/Client/expense-details/expense-details.component';
 import { ClientPageLayoutComponent } from './Components/Client/client-page-layout/client-page-layout.component';
 import { SharedService } from 'src/Services/SharedService/shared.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -33,9 +36,12 @@ import { SharedService } from 'src/Services/SharedService/shared.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [SharedService],
+  providers: [SharedService, HttpClientModule, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
