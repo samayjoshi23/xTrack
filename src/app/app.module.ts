@@ -18,6 +18,8 @@ import { SharedService } from 'src/Services/SharedService/shared.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
+import { PaymentsComponent } from './Components/Payments/payments/payments.component';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { DatePipe } from '@angular/common';
     SignupComponent,
     AdminDashboardComponent,
     ExpenseDetailsComponent,
-    ClientPageLayoutComponent
+    ClientPageLayoutComponent,
+    PaymentsComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,7 @@ import { DatePipe } from '@angular/common';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [SharedService, HttpClientModule, DatePipe],
+  providers: [ SharedService, HttpClientModule, DatePipe ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

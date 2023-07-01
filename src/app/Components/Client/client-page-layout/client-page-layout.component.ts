@@ -40,6 +40,13 @@ export class ClientPageLayoutComponent implements OnInit {
       iconClass: 'fa-solid fa-gear item-icon',
       isActive: false,
       link: 'settings'
+    },
+    {
+      id: 4,
+      title: 'Payments',
+      iconClass: 'fa-solid fa-credit-card item-icon',
+      isActive: false,
+      link: 'payment'
     }
   ]
 

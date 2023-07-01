@@ -2,6 +2,11 @@ import { Injectable } from '@angular/core';
 import { createClient, SupabaseClient, PostgrestResponse } from '@supabase/supabase-js';
 import { environment } from 'src/environments/environment';
 
+function _window() : any {
+  return window;
+}
+
+
 @Injectable({
   providedIn: 'root',
 })
@@ -13,10 +18,13 @@ export class AuthService {
   constructor() {
     this.supabase = createClient(this.supabaseUrl, this.supabaseKey);
   }
+  
+  get nativeWindow() : any {
+    return _window();
+  }
 
   // Signup
   async signUp(user: any) {
-
     let userCredentials = { email: user.email, password: user.password };
 
     //Saving new record for authentication

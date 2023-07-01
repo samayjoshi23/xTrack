@@ -9,6 +9,7 @@ import { AdminDashboardComponent } from './Components/Admin/admin-dashboard/admi
 import { LoginComponent } from './Components/Auth/login/login.component';
 import { SignupComponent } from './Components/Auth/signup/signup.component';
 import { ClientPageLayoutComponent } from './Components/Client/client-page-layout/client-page-layout.component';
+import { PaymentsComponent } from './Components/Payments/payments/payments.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,10 @@ const routes: Routes = [
       {
         path: 'settings',
         component: AccountSettingsComponent
+      },
+      {
+        path: 'payment',
+        component: PaymentsComponent
       },
     ]
   },
