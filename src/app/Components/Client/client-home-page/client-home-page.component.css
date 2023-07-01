@@ -5,7 +5,7 @@
 }
 .hero-data{
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     justify-content: center;
     flex-direction: column;
     color: #272727 !important;
