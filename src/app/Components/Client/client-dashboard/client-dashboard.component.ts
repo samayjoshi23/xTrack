@@ -9,6 +9,8 @@ import { UserService } from 'src/Services/UserData/user.service';
 })
 export class ClientDashboardComponent implements OnInit {
 
+
+  public loggedInUserId : string  | null = '';
   public UserDetals : any = {
     name: '',
     email: '',
@@ -25,22 +27,23 @@ export class ClientDashboardComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // this.UserDetals.userId = this.actRoute.snapshot
     this.actRoute.parent?.paramMap.subscribe(params => {
-      this.UserDetals.userId = params.get('id');
+      this.loggedInUserId = params.get('id');
     });
     this.getUserData();
   }
 
   
   async getUserData(){
-    const res = await this.user.getUserByUserId(this.UserDetals.userId);
-    if(res.error){
-      console.log(res.error);
-    }
-    else{
-      console.log(res.data);
-      this.UserDetals = res.data[0];
+    if(this.loggedInUserId){
+      const res = await this.user.getUserByUserId(this.loggedInUserId);
+      if(res.error){
+        console.log(res.error);
+      }
+      else{
+        console.log(res.data);
+        this.UserDetals = res.data[0];
+      }
     }
   }
 }
