@@ -1,5 +1,5 @@
 <div class="p-4">
-    <div class="m-4 w-50">
+    <div class="m-4 w-75">
         <h3>We are accepting payments here:</h3>
         <form class="mx-1 my-2 px-3 py-1 bg-light rounded-4" autofill="true" [formGroup]="paymentForm">
             <div class="input-holder">
@@ -103,7 +103,7 @@
                 <div class="d-flex flex-column align-items-start">
                     <button type="submit" 
                         class="primary-button primary-btn-filled px-2 d-flex justify-content-center btn btn-success"
-                        [disabled]="paymentForm.invalid" (click)="Pay()"
+                        [disabled]="paymentForm.invalid" (click)="createNewOrder()"
                     >
                         <span class="mx-1">Pay Amount {{paymentForm.value.amount}}</span>
                     </button>

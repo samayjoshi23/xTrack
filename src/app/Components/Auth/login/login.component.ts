@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private auth : AuthService,
-    private user : UserService,
+    private userService : UserService,
     private router: Router
   ) 
   {
@@ -27,18 +27,22 @@ export class LoginComponent implements OnInit {
     
   ngOnInit(): void { }
   
-  async login(){
+  login(){
     let email = this.loginForm.value.email;
     let passowrd = this.loginForm.value.password;
-    const { data, error } = await this.auth.login(email, passowrd);
-    if(data.user!.role === 'authenticated'){
-      let userData = await this.user.getUserForAuth(data.user.id);
-      if(userData.data){
-        this.router.navigate(['user',userData.data[0].userId,'dashboard']);
+    this.auth.login(email, passowrd).subscribe({
+      next: (result : any) => {
+        if(result.data.user.role === "authenticated"){
+          if(result.data.access_token){
+            this.auth.setAuthToken(result.data.access_token);
+          }
+          this.router.navigate(['user', result.data.user.id, 'dashboard']);
+        }
+      },
+      error: (err) => {
+        console.log(err);
       }
-    }
-    else
-      console.log(error);
+    })
 
     this.loginForm.reset();
   }

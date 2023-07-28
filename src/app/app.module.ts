@@ -16,10 +16,11 @@ import { ExpenseDetailsComponent } from './Components/Client/expense-details/exp
 import { ClientPageLayoutComponent } from './Components/Client/client-page-layout/client-page-layout.component';
 import { SharedService } from 'src/Services/SharedService/shared.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { PaymentsComponent } from './Components/Payments/payments/payments.component';
 import { environment } from 'src/environments/environment';
+import { BaseUrlInterceptor } from 'src/interceptors/url-interceptor/base-url.interceptor';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,16 @@ import { environment } from 'src/environments/environment';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ SharedService, HttpClientModule, DatePipe ],
+  providers: [ 
+    SharedService,
+    HttpClientModule,
+    DatePipe,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: BaseUrlInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TableToQueryStringParams } from 'src/Models/TableQueryParams';
 import { UserService } from 'src/Services/UserData/user.service';
 
 @Component({
@@ -17,6 +18,15 @@ export class ClientDashboardComponent implements OnInit {
     appId: '',
     userId: ''
   }
+  public tableObj:TableToQueryStringParams = {
+    table: "Users",
+    alias: "",
+    getAll: true,
+    joinWithTable: [],
+    columns: [],
+    range: null,
+    filters: {}
+  };
 
 
   constructor(
@@ -34,16 +44,16 @@ export class ClientDashboardComponent implements OnInit {
   }
 
   
-  async getUserData(){
+  getUserData(){
     if(this.loggedInUserId){
-      const res = await this.user.getUserByUserId(this.loggedInUserId);
-      if(res.error){
-        console.log(res.error);
-      }
-      else{
-        console.log(res.data);
-        this.UserDetals = res.data[0];
-      }
+      this.user.getUserData(this.tableObj).subscribe({
+        next: (result : any) => {
+          this.UserDetals = result.data[0];
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      });
     }
   }
 }

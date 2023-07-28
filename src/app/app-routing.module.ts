@@ -10,6 +10,7 @@ import { LoginComponent } from './Components/Auth/login/login.component';
 import { SignupComponent } from './Components/Auth/signup/signup.component';
 import { ClientPageLayoutComponent } from './Components/Client/client-page-layout/client-page-layout.component';
 import { PaymentsComponent } from './Components/Payments/payments/payments.component';
+import { AuthGuard } from 'src/Guard/auth.guard';
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
   {
     path: 'user/:id',
     component: ClientPageLayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'dashboard',
@@ -45,6 +47,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminDashboardComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'dashboard',
