@@ -1,76 +1,74 @@
 <section class="d-flex align-items-center justify-content-center w-100 h-100 flex-column">
     <h2>Login</h2>
     <div class="form-container">
-        <form class="login-form">
-            <form class="mx-1 my-2 px-2 py-1 bg-light rounded-4" autofill="true" [formGroup]="loginForm" (ngSubmit)="login()">
-                <div class="input-holder">
-                    <label for="email" name="email" class="input-label p-0">Email <span class="asterisk">*</span></label>
-                    <div class="d-flex flex-column">
-                        <input type="text" class="inputs my-2" name="email" formControlName="email">
-                        <span class="error-message"
-                            *ngIf="
-                                loginForm.controls['email'].hasError('required') &&
-                                (loginForm.controls['email'].touched || loginForm.controls['email'].dirty)
-                            ">
-                            Email can not be blank.
-                        </span>
-                        <span class="error-message" 
-                            *ngIf="
-                                !loginForm.controls['email'].hasError('required') && 
-                                loginForm.controls['email'].hasError('email') &&
-                                (loginForm.controls['email'].touched || loginForm.controls['email'].dirty)
-                            ">
-                            Incorrect Email. Example: "JohnDoe@gmail.com"
-                        </span>
-                    </div>
+        <form class="mx-1 my-2 px-2 py-1 bg-light rounded-4" autofill="true" [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="input-holder">
+                <label for="email" name="email" class="input-label p-0">Email <span class="asterisk">*</span></label>
+                <div class="d-flex flex-column">
+                    <input type="text" class="inputs my-2" name="email" formControlName="email">
+                    <span class="error-message"
+                        *ngIf="
+                            loginForm.controls['email'].hasError('required') &&
+                            (loginForm.controls['email'].touched || loginForm.controls['email'].dirty)
+                        ">
+                        Email can not be blank.
+                    </span>
+                    <span class="error-message" 
+                        *ngIf="
+                            !loginForm.controls['email'].hasError('required') && 
+                            loginForm.controls['email'].hasError('email') &&
+                            (loginForm.controls['email'].touched || loginForm.controls['email'].dirty)
+                        ">
+                        Incorrect Email. Example: "JohnDoe@gmail.com"
+                    </span>
                 </div>
-                <div class="input-holder mt-2">
-                    <label for="password" class="input-label p-0">Password <span class="asterisk">*</span></label>
-                    <div class="d-flex flex-column">
-                        <div class="password-input-container">
-                            <input type="password" name="password" class="inputs my-2" id="password" formControlName="password" #password>
-                            <button type="button" class="password-icon-btn" (click)="togglePass(password)">
-                                <span *ngIf="password.type == 'text'">
-                                    <i class="fa-regular fa-eye"></i>
-                                </span>
-                                <span *ngIf="password.type == 'password'">
-                                    <i class="fa-regular fa-eye-slash"></i>
-                                </span>
-                            </button>
-                        </div>
-                        <span class="error-message"
-                            *ngIf="
-                                loginForm.controls['password'].hasError('required') &&
-                                (loginForm.controls['password'].touched || loginForm.controls['password'].dirty)
-                            ">
-                            Passowrd can not be blank.
-                        </span>
-                        <span class="error-message" 
-                            *ngIf="
-                                !loginForm.controls['password'].hasError('required') && 
-                                loginForm.controls['password'].hasError('minlength') &&
-                                (loginForm.controls['password'].touched || loginForm.controls['password'].dirty)
-                            ">
-                            Password should be atleast of 5 characters.
-                        </span>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-between mt-3 py-3">
-                    <div class="d-flex flex-column align-items-start">
-                        <p class="text-muted text-btn-desc">New to Saventin?</p>
-                        <button type="button" class="primary-button primary-btn-filled px-2 d-flex justify-content-center" routerLink="/register">
-                            <span class="mx-1">Register</span>
+            </div>
+            <div class="input-holder mt-2">
+                <label for="password" class="input-label p-0">Password <span class="asterisk">*</span></label>
+                <div class="d-flex flex-column">
+                    <div class="password-input-container">
+                        <input type="password" name="password" class="inputs my-2" id="password" formControlName="password" #password>
+                        <button type="button" class="password-icon-btn" (click)="togglePass(password)">
+                            <span *ngIf="password.type == 'text'">
+                                <i class="fa-regular fa-eye"></i>
+                            </span>
+                            <span *ngIf="password.type == 'password'">
+                                <i class="fa-regular fa-eye-slash"></i>
+                            </span>
                         </button>
                     </div>
-                    <div class="d-flex flex-column align-items-end">
-                        <p class="text-muted text-btn-desc">Forgot Password?</p>
-                        <button type="submit" class="primary-button primary-btn-filled px-1 submit-btn" [disabled]="loginForm.invalid">
-                            <span class="ms-1">Login</span>
-                            <i class="ri-login-box-line ms-1"></i>
-                        </button>
-                    </div>
+                    <span class="error-message"
+                        *ngIf="
+                            loginForm.controls['password'].hasError('required') &&
+                            (loginForm.controls['password'].touched || loginForm.controls['password'].dirty)
+                        ">
+                        Passowrd can not be blank.
+                    </span>
+                    <span class="error-message" 
+                        *ngIf="
+                            !loginForm.controls['password'].hasError('required') && 
+                            loginForm.controls['password'].hasError('minlength') &&
+                            (loginForm.controls['password'].touched || loginForm.controls['password'].dirty)
+                        ">
+                        Password should be atleast of 5 characters.
+                    </span>
                 </div>
-            </form>
+            </div>
+            <div class="d-flex justify-content-between mt-3 py-3">
+                <div class="d-flex flex-column align-items-start">
+                    <p class="text-muted text-btn-desc">New to Saventin?</p>
+                    <button type="button" class="primary-button primary-btn-filled px-2 d-flex justify-content-center" routerLink="/register">
+                        <span class="mx-1">Register</span>
+                    </button>
+                </div>
+                <div class="d-flex flex-column align-items-end">
+                    <p class="text-muted text-btn-desc">Forgot Password?</p>
+                    <button type="submit" class="primary-button primary-btn-filled px-1 submit-btn" [disabled]="loginForm.invalid">
+                        <span class="ms-1">Login</span>
+                        <i class="ri-login-box-line ms-1"></i>
+                    </button>
+                </div>
+            </div>
         </form>
     </div>
 </section>

@@ -13,6 +13,7 @@
     border-radius: 6px;
     align-items: center;
     justify-content: flex-start;
+    cursor: pointer;
 }
 .side-item:hover{
     background-color: var(--alt-bgcolor);

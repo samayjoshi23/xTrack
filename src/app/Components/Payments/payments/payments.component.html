@@ -1,0 +1,114 @@
+<div class="p-4">
+    <div class="m-4 w-75">
+        <h3>We are accepting payments here:</h3>
+        <form class="mx-1 my-2 px-3 py-1 bg-light rounded-4" autofill="true" [formGroup]="paymentForm">
+            <div class="input-holder">
+                <label for="name" name="name" class="input-label p-0">Name <span class="asterisk">*</span></label>
+                <div class="d-flex flex-column">
+                    <input type="text" class="inputs my-2" name="name" formControlName="name">
+                    <span class="error-message" *ngIf="
+                            paymentForm.controls['name'].hasError('required') &&
+                            (paymentForm.controls['name'].touched || paymentForm.controls['name'].dirty)
+                        ">
+                        name can not be blank.
+                    </span>
+                    <span class="error-message" *ngIf="
+                            !paymentForm.controls['name'].hasError('required') && 
+                            paymentForm.controls['name'].hasError('minlength') &&
+                            (paymentForm.controls['name'].touched || paymentForm.controls['name'].dirty)
+                        ">
+                        Incorrect name. Example: "JohnDoe@gmail.com"
+                    </span>
+                </div>
+            </div>
+            <div class="input-holder mt-2">
+                <label for="email" class="input-label p-0">Email <span class="asterisk">*</span></label>
+                <div class="d-flex flex-column">
+                    <input type="text" name="email" class="inputs my-2" id="email" formControlName="email">
+                    <span class="error-message"
+                        *ngIf="
+                            paymentForm.controls['email'].hasError('required') &&
+                            (paymentForm.controls['email'].touched || paymentForm.controls['email'].dirty)
+                        ">
+                        Email can not be blank.
+                    </span>
+                    <span class="error-message" 
+                        *ngIf="
+                            !paymentForm.controls['email'].hasError('required') && 
+                            paymentForm.controls['email'].hasError('email') &&
+                            (paymentForm.controls['email'].touched || paymentForm.controls['email'].dirty)
+                        ">
+                        Incorrect Email. Example: "JohnDoe@gmail.com"
+                    </span>
+                </div>
+            </div>
+            <div class="input-holder mt-2">
+                <label for="phone" class="input-label p-0">Phone <span class="asterisk">*</span></label>
+                <div class="d-flex flex-column">
+                    <input type="text" name="phone" class="inputs my-2" id="phone" formControlName="phone">
+                    <span class="error-message"
+                        *ngIf="
+                            paymentForm.controls['phone'].hasError('required') &&
+                            (paymentForm.controls['phone'].touched || paymentForm.controls['phone'].dirty)
+                        ">
+                        Phone is mandetory
+                    </span>
+                    <span class="error-message" 
+                        *ngIf="
+                            !paymentForm.controls['phone'].hasError('required') && 
+                            paymentForm.controls['phone'].hasError('pattern') &&
+                            (paymentForm.controls['phone'].touched || paymentForm.controls['phone'].dirty)
+                        ">
+                        Enter a valid phone number
+                    </span>
+                </div>
+            </div>
+            <div class="input-holder my-2">
+                <label class="input-label p-0">Select Amount <span class="asterisk">*</span></label>
+                <div class="row px-1">
+                    <div class="col-3 px-2">
+                        <button type="button" (click)="setAmount(101)" class="btn btn-dark w-100">101</button>
+                    </div>
+                    <div class="col-3 px-2">
+                        <button type="button" (click)="setAmount(251)" class="btn btn-dark w-100">251</button>
+                    </div>
+                    <div class="col-3 px-2">
+                        <button type="button" (click)="setAmount(501)" class="btn btn-dark w-100">501</button>
+                    </div>
+                    <div class="col-3 px-2">
+                        <button type="button" (click)="setAmount(1001)" class="btn btn-dark w-100">1001</button>
+                    </div>
+                </div>
+            </div>
+            <div class="input-holder">
+                <label for="amount" name="amount" class="input-label p-0">Or Type Amount <span class="asterisk">*</span></label>
+                <div class="d-flex flex-column">
+                    <input type="text" class="inputs my-2" name="amount" formControlName="amount">
+                    <span class="error-message" *ngIf="
+                            paymentForm.controls['amount'].hasError('required') &&
+                            (paymentForm.controls['amount'].touched || paymentForm.controls['amount'].dirty)
+                        ">
+                        amount can not be blank.
+                    </span>
+                    <span class="error-message" *ngIf="
+                            !paymentForm.controls['amount'].hasError('required') && 
+                            paymentForm.controls['amount'].hasError('min') &&
+                            (paymentForm.controls['amount'].touched || paymentForm.controls['amount'].dirty)
+                        ">
+                        Minimum amount should be Rs. 11.
+                    </span>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between mt-3 py-3">
+                <div class="d-flex flex-column align-items-start">
+                    <button type="submit" 
+                        class="primary-button primary-btn-filled px-2 d-flex justify-content-center btn btn-success"
+                        [disabled]="paymentForm.invalid" (click)="createNewOrder()"
+                    >
+                        <span class="mx-1">Pay Amount {{paymentForm.value.amount}}</span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
