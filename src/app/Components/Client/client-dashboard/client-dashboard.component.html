@@ -1,9 +1,35 @@
 <section class="m-3">
   <div>
     <h2>Logged In User</h2>
-    <p> <strong>name : </strong> <span> {{ UserDetals.name }} </span> </p>
-    <p> <strong>email : </strong> <span> {{ UserDetals.email }} </span> </p>
-    <p> <strong>appId : </strong> <span> {{ UserDetals.appId }} </span> </p>
-    <p> <strong>userId : </strong> <span> {{ UserDetals.userId }} </span> </p>
+    <p> <strong>Name : </strong> <span> {{ UserDetals.name }} </span> </p>
+    <p> <strong>Email : </strong> <span> {{ UserDetals.email }} </span> </p>
+    <p> <strong>App Id : </strong> <span> {{ UserDetals.appId }} </span> </p>
+    <p> <strong>User Id : </strong> <span> {{ UserDetals.id }} </span> </p>
   </div>
+</section>
+
+<section class="m-3">
+  <h3>Transactions</h3>
+  <div class="d-flex flex-column p-2">
+    <div class="transaction-container" *ngFor="let transaction of transactionList">
+      <div class="d-flex align-items-center">
+        <div class="transaction-list-icon" [ngClass]="transaction.transactionType === 'Expense' ? 'danger' : 'success'">
+          <i [class]="getTransactionIconClass(transaction.category.icon, transaction.transactionType)"></i>
+        </div>
+        <div class="d-flex justify-content-center flex-column">
+          <p class="m-0 fw-bold"> {{transaction.title}} </p>
+          <small> {{transaction.description}} </small>
+        </div>
+      </div>
+      
+      <div class="d-flex align-items-center">
+        <span class="category-tag fw-lite">{{transaction.category.name}}</span>
+        <h6 [class]="getTransactionIconClass('m-0 fw-bold', transaction.transactionType)">Rs. {{transaction.amount}}</h6>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="my-3">
+
 </section>

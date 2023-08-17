@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TableToQueryStringParams } from 'src/Models/TableQueryParams';
+import { TransactionsService } from 'src/Services/TransactionService/transactions.service';
 import { UserService } from 'src/Services/UserData/user.service';
 
 @Component({
@@ -12,6 +13,8 @@ export class ClientDashboardComponent implements OnInit {
 
 
   public loggedInUserId : string  | null = '';
+  public transactionList : any[] = [];
+  public categoryList : any[] = [];
   public UserDetals : any = {
     name: '',
     email: '',
@@ -32,7 +35,8 @@ export class ClientDashboardComponent implements OnInit {
   constructor(
     private actRoute: ActivatedRoute,
     private router: Router,
-    private user: UserService
+    private user: UserService,
+    private transactions: TransactionsService
   ) { }
 
 
@@ -40,20 +44,50 @@ export class ClientDashboardComponent implements OnInit {
     this.actRoute.parent?.paramMap.subscribe(params => {
       this.loggedInUserId = params.get('id');
     });
-    this.getUserData();
+    if(this.loggedInUserId){
+      this.getUserData();
+      this.getTransactions();
+      this.getCategories();
+    }
   }
 
   
   getUserData(){
-    if(this.loggedInUserId){
-      this.user.getUserData(this.tableObj).subscribe({
-        next: (result : any) => {
-          this.UserDetals = result.data[0];
-        },
-        error: (err) => {
-          console.log(err);
-        }
-      });
-    }
+    this.user.getUserData().subscribe({
+      next: (result : any) => {
+        this.UserDetals = result.data[0];
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+  }
+
+  getTransactions(){
+    this.transactions.GetDashboardTransactions("0-6").subscribe({
+      next: (result : any) => {
+        console.log(result);
+        this.transactionList = result.data;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
+
+  getCategories(){
+    this.transactions.GetCategories().subscribe({
+      next: (result : any) => {
+        console.log(result);
+        this.categoryList = result.data;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
+
+  getTransactionIconClass(icon :string, type: string):string{
+    return type == "Expense" ? `${icon} text-danger` : `${icon} text-success`;
   }
 }
