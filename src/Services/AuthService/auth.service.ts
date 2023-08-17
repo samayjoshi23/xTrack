@@ -1,46 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { createClient, SupabaseClient, PostgrestResponse } from '@supabase/supabase-js';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private supabaseUrl = environment.supabase.url;
-  private supabaseKey = environment.supabase.key;
-  public supabase: SupabaseClient | any;
   private authToken: string | null = null;
 
-  constructor(private http: HttpClient) {
-    this.supabase = createClient(this.supabaseUrl, this.supabaseKey);
-  }
+  constructor(private http: HttpClient) { }
 
   // Signup
-  async signUp(user: any) {
-    let userCredentials = { email: user.email, password: user.password };
-
-    //Saving new record for authentication
-    const result = await this.supabase?.auth.signUp(userCredentials);
-    if (result?.data != null) {
-      let currentUser = [
-        {
-          appId: `@${user.name.slice(0, 4)}${Math.floor(Math.random() * 10000)}`,
-          name: user.name,
-          email: user.email,
-          userAuthId: result?.data.user.id,
-        },
-      ];
-
-      const { data, error } = await this.supabase.from('UserData').insert(currentUser);
-      if(!data)
-        console.log(error);
-    }
-    else
-      console.log(result?.error.Message);
-
-    return result;
+  signUp(user: any):Observable<any>{
+    return this.http.post<Observable<any>>('api/user/signup', user);
   }
 
   // Login
@@ -51,7 +24,6 @@ export class AuthService {
   // Logout
   logout(){
     return this.http.post<Observable<any>>('api/user/signout', {});
-    // return this.supabase.auth.signOut();
   }
 
   setAuthToken(token : string){

@@ -10,8 +10,8 @@
         </button>
         <h1 class="fs-4 m-0 p-0 ms-2" routerLink="/">xTrack</h1>
     </div>
-    <div>
-        <ng-container *ngIf="!isLoggedIn">
+    <div class="d-flex align-items-center">
+        <ng-container *ngIf="!(isLoggedIn$ | async)">
             <button class="mx-2 btn btn-sm btn-success" routerLink="auth/login">
                 Login
             </button>
@@ -19,7 +19,7 @@
                 Signup
             </button>
         </ng-container>
-        <ng-container *ngIf="isLoggedIn">
+        <ng-container *ngIf="(isLoggedIn$ | async)">
             <button class="mx-2 btn btn-sm btn-danger" (click)="logout()">
                 Logout
             </button>

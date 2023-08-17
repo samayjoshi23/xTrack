@@ -43,15 +43,25 @@ export class SignupComponent implements OnInit {
       return;
     }
     
-    let result = await this.auth.signUp(this.signupForm.value);
-    if(result?.data.user?.identities?.length  == 0){
-      alert('email already exists');
-    }
-    else{
-      alert('welcome to xTrack');
-      this.router.navigate(['/auth/login']);
-    }
-    this.signupForm.reset();
+    // let data = await this.auth.signUp(this.signupForm.value);
+    // console.log(data);
+    this.auth.signUp(this.signupForm.value).subscribe({
+      next: (result) => {
+        console.log(result);
+        // if(result?.data.user?.identities?.length  == 0){
+        //   alert('email already exists');
+        // }
+        // else{
+        //   alert('welcome to xTrack');
+        //   this.router.navigate(['/auth/login']);
+        // }
+      },
+      error: (err) => {
+        console.log(err);
+        // Add notification as : "Email or phone already exists"
+      }
+    });
+    // this.signupForm.reset();
   }
   
   togglePass(el: HTMLInputElement){

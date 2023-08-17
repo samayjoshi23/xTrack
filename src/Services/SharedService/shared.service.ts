@@ -1,3 +1,4 @@
+import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { RequestParms } from 'src/Models/TableQueryParams';
@@ -20,8 +21,8 @@ export class SharedService {
     this.sidebarVisibleSubject.next(value);
   }
 
-  getIsUserLoggedIn(){
-    
+  toggleUserLoginStatus(value: boolean){
+    this.isLoggedInSubject.next(value);
   }
   
   getQueryString(requestObj : any) {
@@ -57,5 +58,15 @@ export class SharedService {
     requestParams.queryString = (mainQuery+subQuery+subFilter+mainFilter);
     requestParams.range = requestObj.range != null ? requestObj.range : null;
     return requestParams;
+  }
+  
+  getHttpParams(params : any){
+    let httpParams = new HttpParams();
+    for (const key in params) {
+      if (params.hasOwnProperty(key)) {
+        httpParams = httpParams.append(key, params[key]);
+      }
+    }
+    return httpParams;
   }
 }

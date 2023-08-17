@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/Services/AuthService/auth.service';
 import { SharedService } from 'src/Services/SharedService/shared.service';
 
@@ -9,15 +10,17 @@ import { SharedService } from 'src/Services/SharedService/shared.service';
 })
 export class NavbarComponent implements OnInit {
   public isActive: boolean = false;
-  public isLoggedIn: boolean = false;
+  public isLoggedIn$ = this.sharedService.isLoggedIn$;
   public colorMode: string = 'light';
   public body = document.querySelector('body') as HTMLBodyElement;
 
 
-  constructor(private sharedService: SharedService, private authService : AuthService) { }
-  ngOnInit(): void {
-    this.setUserLoginState();
-  }
+  constructor(
+    private sharedService: SharedService, 
+    private authService : AuthService,
+    private router : Router
+  ) { }
+  ngOnInit(): void { }
   
   sidebarSwitch(){
     this.isActive = !this.isActive;
@@ -35,16 +38,18 @@ export class NavbarComponent implements OnInit {
       this.body.classList.remove('light')
     }
   }
-  
-  setUserLoginState(){
-    this.isLoggedIn = this.authService.isUserLoggedIn();
-  }
 
   logout(){
-    const res = this.authService.logout();
-    console.log(res);
-    this.authService.removeToken();
-    this.setUserLoginState();
+    this.authService.logout().subscribe({
+      next: (result) => {
+        console.log(result);
+        this.authService.removeToken();
+        this.sharedService.toggleUserLoginStatus(false);
+        this.router.navigate(["/"]);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
   }
-
 }

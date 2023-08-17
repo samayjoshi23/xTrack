@@ -1,6 +1,7 @@
 import { ViewEncapsulation } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/Services/AuthService/auth.service';
 import { SharedService } from 'src/Services/SharedService/shared.service';
 
 @Component({
@@ -53,11 +54,16 @@ export class ClientPageLayoutComponent implements OnInit {
 
   constructor(
     private sharedService: SharedService,
-    private router: Router
+    private router: Router,
+    private auth: AuthService
   ) { }
   isVisible$ = this.sharedService.sidebarVisible$;
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    if(this.auth.isUserLoggedIn()){
+      this.sharedService.toggleUserLoginStatus(true);
+    }
+  }
 
   setActive(id: number){
     this.sideBarItems.forEach(item => {

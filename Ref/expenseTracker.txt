@@ -1,6 +1,6 @@
 1.	Input => Amount
 2. 	Input => Description
-3.	Input => Tag ([Add Tag] If not available) [Clothes, Food, Grocery, Electronics, Investment]
+3.	Input => Tag ([Add Tag] If not available) [Lifestyle, Grocery, Bills, Investment, Medical]
 
 -----------------------------------------------------------
 				Func
@@ -23,3 +23,42 @@ Firebase
 ----------------------------------------------------------
 ng2-charts
 ng-select
+
+
+[
+	{
+		userId: '',
+		name: 'Lifestyle',
+		icon: 'fa-solid fa-shirt',
+		isActive: true,
+		isDefault: true
+	},
+	{
+		userId: '',
+		name: 'Grocery',
+		icon: 'fa-solid fa-basket-shopping',
+		isActive: true,
+		isDefault: true
+	},
+	{
+		userId: '',
+		name: 'Bills',
+		icon: 'fa-solid fa-credit-card',
+		isActive: true,
+		isDefault: true
+	},
+	{
+		userId: '',
+		name: 'Investment',
+		icon: 'fa-solid fa-circle-dollar-to-slot',
+		isActive: true,
+		isDefault: true
+	},
+	{
+		userId: '',
+		name: 'Medical',
+		icon: 'fa-solid fa-hand-holding-medical',
+		isActive: true,
+		isDefault: true
+	}
+]
