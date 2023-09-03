@@ -14,8 +14,8 @@ export class TransactionsService {
   ) { }
 
   // Get Transactions for dashboard
-  GetDashboardTransactions(range: string):Observable<any>{
-    let httpParam = this.shared.getHttpParams({ range: range });
+  GetDashboardTransactions(filter: string):Observable<any>{
+    let httpParam = this.shared.getHttpParams({ filterString : filter });
     return this.http.get<Observable<any>>('api/transaction/getTransactions', { params: httpParam });
   }
 

@@ -11,12 +11,13 @@ import { SharedService } from 'src/Services/SharedService/shared.service';
 export class NavbarComponent implements OnInit {
   public isActive: boolean = false;
   public isLoggedIn$ = this.sharedService.isLoggedIn$;
+  public userAppId$ = this.sharedService.userAppId$;
   public colorMode: string = 'light';
   public body = document.querySelector('body') as HTMLBodyElement;
 
 
   constructor(
-    private sharedService: SharedService, 
+    private sharedService: SharedService,
     private authService : AuthService,
     private router : Router
   ) { }
@@ -39,17 +40,4 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  logout(){
-    this.authService.logout().subscribe({
-      next: (result) => {
-        console.log(result);
-        this.authService.removeToken();
-        this.sharedService.toggleUserLoginStatus(false);
-        this.router.navigate(["/"]);
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    });
-  }
 }

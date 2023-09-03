@@ -1,20 +1,51 @@
-<section class="m-3">
-  <div>
-    <h2>Logged In User</h2>
-    <p> <strong>Name : </strong> <span> {{ UserDetals.name }} </span> </p>
-    <p> <strong>Email : </strong> <span> {{ UserDetals.email }} </span> </p>
-    <p> <strong>App Id : </strong> <span> {{ UserDetals.appId }} </span> </p>
-    <p> <strong>User Id : </strong> <span> {{ UserDetals.id }} </span> </p>
+<section class="mb-3">
+  <div class="row g-0">
+    <aside class="p-2 col-md-4">
+      <div class="header-panels g-0">
+        <h3 class="section-heading">This Month</h3>
+        <div class="d-flex justify-content-between w-100">
+          <div class="col-6 danger-color d-flex flex-column align-items-start flex-wrap">
+            <span class="fs-3 fw-bold">{{expenseTotal | currency:'INR':'symbol':'4.2-2'}}</span>
+            <div class="d-flex align-items-center">
+              <span class="fs-5 mr-2">Spent</span>
+              <div class="transaction-list-icon danger">
+                <i class="fa-solid fa-arrow-trend-down"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 success-color d-flex flex-column align-items-end">
+            <span class="fs-3 fw-bold">{{incomeTotal | currency:'INR':'symbol':'4.2-2'}}</span>
+            <div class="d-flex align-items-center">
+              <span class="fs-5 mr-2">Income</span>
+              <div class="transaction-list-icon success">
+                <i class="fa-solid fa-arrow-trend-up"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-sm-6 col-md-6 col-lg-12 w-100">
+          <canvas baseChart class="chart" [data]="doughnutChartData" [type]="doughnutChartType"></canvas>
+        </div> -->
+      </div>
+    </aside>
+    <aside class="py-2 col-md-8">
+      <div class="header-panels">
+        <h3 class="section-heading">This Year</h3>
+        <div class="row g-0">
+          <canvas baseChart class="chart w-100 h-100" [data]="lineChartData" [options]="lineChartOptions" [type]="lineChartType"></canvas>
+        </div>
+      </div>
+    </aside>
   </div>
 </section>
 
-<section class="m-3">
-  <h3>Transactions</h3>
+<section class="my-3 p-1">
+  <h3 class="section-heading">Recent Transactions</h3>
   <div class="d-flex flex-column p-2">
-    <div class="transaction-container" *ngFor="let transaction of transactionList">
+    <div class="transaction-container" *ngFor="let transaction of transactions">
       <div class="d-flex align-items-center">
-        <div class="transaction-list-icon" [ngClass]="transaction.transactionType === 'Expense' ? 'danger' : 'success'">
-          <i [class]="getTransactionIconClass(transaction.category.icon, transaction.transactionType)"></i>
+        <div class="transaction-list-icon" [ngClass]="transaction.transactionType === expenseTypesEnum.Expense ? 'danger' : 'success'">
+          <i [class]="transaction.category.icon"></i>
         </div>
         <div class="d-flex justify-content-center flex-column">
           <p class="m-0 fw-bold"> {{transaction.title}} </p>
@@ -22,14 +53,46 @@
         </div>
       </div>
       
-      <div class="d-flex align-items-center">
-        <span class="category-tag fw-lite">{{transaction.category.name}}</span>
-        <h6 [class]="getTransactionIconClass('m-0 fw-bold', transaction.transactionType)">Rs. {{transaction.amount}}</h6>
+      <div class="d-flex justify-content-center flex-column align-items-end">
+        <h6 [class]="getTransactionIconClass('m-0 fw-bold',transaction.transactionType)">
+          {{transaction.amount | currency:'INR':'symbol':'4.2-2'}}
+        </h6>
+        <span class="category-tag">{{transaction.category.name}}</span>
       </div>
     </div>
   </div>
 </section>
 
-<section class="my-3">
 
-</section>
+  <!-- (chartHover)="chartHovered($event)"
+  (chartClick)="chartClicked($event)" -->
+<!-- <table>
+  <tr>
+    <th *ngFor="let label of lineChartData.labels">{{ label }}</th>
+  </tr>
+  <tr
+    *ngFor="let d of lineChartData.datasets; let i = index"
+    [class]="'line-' + i"
+  >
+    <td *ngFor="let label of lineChartData.labels; let j = index">
+      {{ d && d.data[j] }}
+    </td>
+  </tr>
+</table>
+<div class="button-row">
+  <button class="btn btn-primary btn-sm" (click)="randomize()">
+    Randomize
+  </button>
+  <button class="btn btn-primary btn-sm" (click)="pushOne()">
+    Push
+  </button>
+  <button class="btn btn-primary btn-sm" (click)="changeColor()">
+    Recolor
+  </button>
+  <button class="btn btn-primary btn-sm" (click)="hideOne()">
+    Toggle Series B
+  </button>
+  <button class="btn btn-primary btn-sm" (click)="changeLabel()">
+    Change Label
+  </button>
+</div> -->

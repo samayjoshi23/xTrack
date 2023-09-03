@@ -1,0 +1,98 @@
+:root {
+  --danger-color: #dc3545;
+  --success-color: #198754;
+  --danger-bgcolor: #eed2d5;
+  --success-bgcolor: #c8ede5;
+}
+
+body.light{
+  --primary-bgcolor: rgb(255, 255, 255);
+  --secondary-bgcolor: rgb(245, 245, 245);
+  --alt-bgcolor: rgb(215, 215, 215);
+  --primary-font-color: rgb(20,20,20);
+  --secondary-font-color: rgb(50,50,50);
+  --alt-font-color: rgb(120,120,120); 
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --primary-color: rgb(49, 32, 54);
+  --secondary-color: rgb(229, 184, 244);
+}
+body.dark{
+  --primary-bgcolor: rgb(29, 35, 41);
+  --secondary-bgcolor: rgb(49, 60, 68);
+  --alt-bgcolor: rgb(43, 52, 60);
+  --primary-font-color: rgb(255, 255, 255);
+  --secondary-font-color: rgb(240,240,240);
+  --alt-font-color: rgb(180,180,180);
+  --shadow-color: rgba(255, 255, 255, 0.1);
+  --primary-color: rgb(160, 142, 166);
+  --secondary-color: rgb(54, 36, 60);
+}
+
+/* ===================== color-classes =================== */
+.primary-bgcolor{
+  background-color : var(--primary-bgcolor);
+}
+.secondary-bgcolor{
+  background-color : var(--secondary-bgcolor);
+}
+.alt-bgcolor{
+  background-color : var(--alt-bgcolor);
+}
+.primary-font-color{
+  color : var(--primary-font-color);
+}
+.secondary-font-color{
+  color : var(--secondary-font-color);
+}
+.alt-font-color{
+  color : var(--alt-font-color);
+}
+.primary-color{
+  color : var(--primary-color);
+}
+.secondary-color{
+  color : var(--secondary-color);
+}
+
+
+/* ===================== font-classes =================== */
+
+
+.fsize-2{
+  font-size: 2rem;
+}
+.fsize-1-5{
+  font-size: 1.5rem;
+}
+.fsize-1-25{
+  font-size: 1.25rem;
+}
+.fsize-1{
+  font-size: 1rem;
+}
+.fsize-0-85{
+  font-size: 0.85rem;
+}
+.fsize-0-7{
+  font-size: 0.7rem;
+}
+
+.section-heading{
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+
+/* ================== Event Type =====================*/
+.danger-color{
+  color: var(--danger-color);
+}
+.success-color {
+  color: var(--success-color);
+}
+.danger-bgcolor {
+  background-color: var(--danger-bgcolor);
+}
+.success-bgcolor {
+  background-color: var(--success-bgcolor);
+}

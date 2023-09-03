@@ -1,9 +1,17 @@
 <aside class="sidebar">
-    <div class="side-item" 
-        [ngClass]="item.isActive ? 'active' : ''"
-        *ngFor="let item of sideBarItems"
-        (click)="setActive(item.id)">
-            <i [class]="item.iconClass"></i>
-            <span class="item-title">{{item.title}}</span>
+    <div class="side-menu">
+        <div class="side-item" 
+            [ngClass]="item.isActive ? 'active' : ''"
+            *ngFor="let item of sideBarItems"
+            (click)="setActive(item.id)">
+                <i [class]="item.iconClass"></i>
+                <span class="item-title">{{item.title}}</span>
+        </div>
+    </div>
+    <div class="side-nav">
+        <div class="side-item logout-btn" (click)="logout()">
+            <i class="item-icon fa-solid fa-power-off text-danger"></i>
+            <span class="item-title">Logout</span>
+        </div>
     </div>
 </aside>

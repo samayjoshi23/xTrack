@@ -16,11 +16,11 @@ import { ExpenseDetailsComponent } from './Components/Client/expense-details/exp
 import { ClientPageLayoutComponent } from './Components/Client/client-page-layout/client-page-layout.component';
 import { SharedService } from 'src/Services/SharedService/shared.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { PaymentsComponent } from './Components/Payments/payments/payments.component';
-import { environment } from 'src/environments/environment';
 import { BaseUrlInterceptor } from 'src/interceptors/url-interceptor/base-url.interceptor';
+import { NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,8 @@ import { BaseUrlInterceptor } from 'src/interceptors/url-interceptor/base-url.in
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgChartsModule
   ],
   providers: [ 
     SharedService,
@@ -53,6 +54,9 @@ import { BaseUrlInterceptor } from 'src/interceptors/url-interceptor/base-url.in
       provide: HTTP_INTERCEPTORS,
       useClass: BaseUrlInterceptor,
       multi: true
+    },
+    {
+      provide: NgChartsConfiguration, useValue: { genarateColors : false }
     }
   ],
   bootstrap: [AppComponent]

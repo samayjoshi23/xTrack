@@ -13,9 +13,12 @@ export class SharedService {
   private sidebarVisibleSubject = new BehaviorSubject<boolean>(false);
   sidebarVisible$ = this.sidebarVisibleSubject.asObservable();
 
-
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
   isLoggedIn$ = this.isLoggedInSubject.asObservable();
+
+  private userAppIdSubject = new BehaviorSubject<string>("");
+  userAppId$ = this.userAppIdSubject.asObservable();
+
   
   toggleSidebarVisibility(value: boolean) {
     this.sidebarVisibleSubject.next(value);
@@ -23,6 +26,10 @@ export class SharedService {
 
   toggleUserLoginStatus(value: boolean){
     this.isLoggedInSubject.next(value);
+  }
+
+  setUserAppId(value: string){
+    this.userAppIdSubject.next(value);
   }
   
   getQueryString(requestObj : any) {
@@ -68,5 +75,9 @@ export class SharedService {
       }
     }
     return httpParams;
+  }
+
+  getMonthList(){
+    return ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   }
 }

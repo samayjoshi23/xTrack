@@ -11,18 +11,13 @@
         <h1 class="fs-4 m-0 p-0 ms-2" routerLink="/">xTrack</h1>
     </div>
     <div class="d-flex align-items-center">
-        <ng-container *ngIf="!(isLoggedIn$ | async)">
-            <button class="mx-2 btn btn-sm btn-success" routerLink="auth/login">
-                Login
-            </button>
-            <button class="mx-2 btn btn-sm btn-warning" routerLink="auth/signup">
-                Signup
-            </button>
-        </ng-container>
-        <ng-container *ngIf="(isLoggedIn$ | async)">
-            <button class="mx-2 btn btn-sm btn-danger" (click)="logout()">
-                Logout
-            </button>
+        <ng-container *ngIf="isLoggedIn$ | async">
+            <div class="user-container">
+                <div class="user-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <p class="userAppId">{{ userAppId$ | async }}</p>
+            </div>
         </ng-container>
         <button class="color-mode-button" (click)="colorModeSwitch('dark')" *ngIf="colorMode == 'light'">
             <i class="mode-icons fa-solid fa-moon fs-4 pt-1"></i>

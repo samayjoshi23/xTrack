@@ -32,7 +32,30 @@
     margin: 0;
     margin: 0 0.5rem;
 }
-
+.user-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 0.5rem;
+    border: 3px solid var(--alt-bgcolor);
+    border-radius: 2rem;
+    padding: 3px;
+}
+.user-avatar{
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    margin-right: 0.25rem;
+    background-color: var(--alt-bgcolor);
+}
+.userAppId{
+    font-size: 14px;
+    margin: 0;
+    margin-right: 0.25rem;
+}
 /* ====================== Media Queries ================== */
 
 @media(max-width: 768px){
