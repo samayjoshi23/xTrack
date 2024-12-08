@@ -11,6 +11,7 @@ import { SharedService } from 'src/Services/SharedService/shared.service';
 import { TransactionsService } from 'src/Services/TransactionService/transactions.service';
 import { UserService } from 'src/Services/UserData/user.service';
 import { Chart, ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
+import { CommonModule, CurrencyPipe, DatePipe } from '@angular/common';
 import { BaseChartDirective } from 'ng2-charts';
 import Annotation from 'chartjs-plugin-annotation';
 
@@ -53,7 +54,7 @@ export class ClientDashboardComponent implements OnInit {
   };
 
   public lineChartType: ChartType = 'line';
-  private newLabel? = 'New label';
+  // private newLabel? = 'New label';
   public lineChartData: ChartConfiguration['data'] = {
     datasets: [
       {
@@ -143,6 +144,9 @@ export class ClientDashboardComponent implements OnInit {
     this.actRoute.parent?.paramMap.subscribe(params => {
       this.loggedInUserId = params.get('id');
     });
+    this.actRoute.paramMap.subscribe(params => {
+      this.loggedInUserId = params.get('id');
+    })
     this.presetYearlyList();
     this.monthList = this.sharedService.getMonthList();
     if(this.loggedInUserId){
@@ -152,20 +156,18 @@ export class ClientDashboardComponent implements OnInit {
     }
   }
   
-  private static generateNumber(i: number): number {
-    return Math.floor(Math.random() * (i < 2 ? 100 : 1000) + 1);
-  }
-
-  public randomize(): void {
-    for (let i = 0; i < this.lineChartData.datasets.length; i++) {
-      for (let j = 0; j < this.lineChartData.datasets[i].data.length; j++) {
-        this.lineChartData.datasets[i].data[j] =
-        ClientDashboardComponent.generateNumber(i);
-      }
-    }
-    this.chart?.update();
-  }
-
+  // private static generateNumber(i: number): number {
+  //   return Math.floor(Math.random() * (i < 2 ? 100 : 1000) + 1);
+  // }
+  // public randomize(): void {
+  //   for (let i = 0; i < this.lineChartData.datasets.length; i++) {
+  //     for (let j = 0; j < this.lineChartData.datasets[i].data.length; j++) {
+  //       this.lineChartData.datasets[i].data[j] =
+  //       ClientDashboardComponent.generateNumber(i);
+  //     }
+  //   }
+  //   this.chart?.update();
+  // }
   // events
   // public chartClicked({
   //   event,
@@ -176,7 +178,6 @@ export class ClientDashboardComponent implements OnInit {
   // }): void {
   //   console.log(event, active);
   // }
-
   // public chartHovered({
   //   event,
   //   active,
@@ -186,21 +187,16 @@ export class ClientDashboardComponent implements OnInit {
   // }): void {
   //   console.log(event, active);
   // }
-
-  public hideOne(): void {
-    const isHidden = this.chart?.isDatasetHidden(1);
-    this.chart?.hideDataset(1, !isHidden);
-  }
-
-  public changeLabel(): void {
-    const tmp = this.newLabel;
-    this.newLabel = this.lineChartData.datasets[2].label;
-    this.lineChartData.datasets[2].label = tmp;
-
-    this.chart?.update();
-  }
-
-
+  // public hideOne(): void {
+  //   const isHidden = this.chart?.isDatasetHidden(1);
+  //   this.chart?.hideDataset(1, !isHidden);
+  // }
+  // public changeLabel(): void {
+  //   const tmp = this.newLabel;
+  //   this.newLabel = this.lineChartData.datasets[2].label;
+  //   this.lineChartData.datasets[2].label = tmp;
+  //   this.chart?.update();
+  // }
 
   getUserData(){
     this.user.getUserData().subscribe({

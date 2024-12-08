@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
           if(result.data.access_token){
             this.auth.setAuthToken(result.data.access_token);
           }
-          this.router.navigate(['user', result.data.user.id, 'dashboard']);
+          this.router.navigate(['user', 'dashboard', result.data.user.id]);
         }
       },
       error: (err) => {
